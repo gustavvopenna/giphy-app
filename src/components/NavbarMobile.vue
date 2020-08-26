@@ -17,21 +17,25 @@
       class="fixed h-full bg-purple-1000 opacity-98 w-full flex justify-center items-center"
     >
       <ul>
-        <router-link
+        <MenuItem
           v-for="item in menuItems"
           :key="item.name"
+          render="router-link"
           tag="li"
           :to="item.path"
           class="text-white font-bold text-5xl transform ease-in-out duration-200 hover:scale-110 cursor-pointer"
         >
           <span @click="toggleMenu">{{ item.name }}</span>
-        </router-link>
+        </MenuItem>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+// Components
+import MenuItem from "@/components/MenuItem";
+
 // Icons
 import MenuIcon from "@/assets/icons/menu.svg";
 
@@ -41,7 +45,8 @@ import { menuItems } from "@/data/menuItems.js";
 export default {
   name: "NavbarMobile",
   components: {
-    MenuIcon
+    MenuIcon,
+    MenuItem
   },
   data() {
     return {
