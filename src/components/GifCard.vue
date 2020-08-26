@@ -8,6 +8,7 @@
             class="transform mr-2 inline-block opacity-0 group-hover:opacity-100 hover:scale-110 text-white transition ease-in-out duration-200 cursor-pointer"
           />
           <HeartIcon
+            @click="addToFavorites"
             class="transform inline-block opacity-0 group-hover:opacity-100 hover:scale-110 text-white transition ease-in-out duration-200 cursor-pointer"
           />
         </div>
@@ -41,16 +42,33 @@ export default {
     image: {
       type: String,
       required: true
+    },
+    gif: {
+      type: Object,
+      required: true
     }
   },
   data() {
     return {
-      isLoad: false
+      isLoad: false,
+      favorite: false
     };
   },
   methods: {
     loaded() {
       this.isLoad = true;
+    },
+    async addToFavorites() {
+      const { created } = await this.$store.dispatch(
+        "createFavorite",
+        this.gif.id
+      );
+      if (created) {
+        this.$toast.success("Gif agregado a favoritos", {
+          position: "bottom-right"
+        });
+      }
+      this.favorite = true;
     }
   }
 };
