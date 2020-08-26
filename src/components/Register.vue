@@ -19,7 +19,7 @@
 
 <script>
 //Libraries
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 
 // Componentes
 import AppInput from "@/components/AppInput";
@@ -40,8 +40,21 @@ export default {
   },
   methods: {
     ...mapActions(["registerAction"]),
+    ...mapMutations([
+      "setdisplayPopup",
+      "setRegisterRequested",
+      "setLoginRequested"
+    ]),
     register() {
-      this.registerAction({ email: this.email, password: this.password });
+      this.registerAction({ email: this.email, password: this.password }).then(
+        () => {
+          this.setdisplayPopup(false);
+          this.setLoginRequested(false);
+          this.$toast.success("Cuenta creada exitosamente!", {
+            position: "bottom-right"
+          });
+        }
+      );
     },
     validate() {
       this.cleanErrors();
