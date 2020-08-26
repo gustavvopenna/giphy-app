@@ -76,7 +76,11 @@ export default {
       this.avatar = avatar.data.image_original_url;
     },
     signOut() {
-      this.signOutAction();
+      this.signOutAction().then(() => {
+        this.$toast.info("Haz cerrado sesión", {
+          position: "bottom-right"
+        });
+      });
     }
   }
 };

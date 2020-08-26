@@ -24,6 +24,9 @@
 </template>
 
 <script>
+// Libraries
+import { mapGetters } from "vuex";
+
 // Components
 import Loader from "../components/Loader";
 
@@ -54,11 +57,20 @@ export default {
       favorite: false
     };
   },
+  computed: {
+    ...mapGetters(["getUser", "isUserAuth"])
+  },
   methods: {
     loaded() {
       this.isLoad = true;
     },
     async addToFavorites() {
+      if (!this.isUserAuth) {
+        this.$toast.error("Debes iniciar sesión para agregar a favoritos", {
+          position: "bottom-right"
+        });
+        return;
+      }
       const { created } = await this.$store.dispatch(
         "createFavorite",
         this.gif.id
