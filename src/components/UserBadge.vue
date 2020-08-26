@@ -1,5 +1,8 @@
 <template>
-  <div v-if="isUserAuth" class="flex items-center p-4 font-medium">
+  <div
+    v-if="isUserAuth"
+    class="flex justify-center sm:justify-start items-center p-4 font-medium text-xl sm:text-base"
+  >
     <Avatar size="sm" class="mr-2" :image="avatar" />
     <span class="text-white">{{ getUser.email }}</span>
   </div>
