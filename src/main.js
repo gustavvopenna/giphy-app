@@ -2,6 +2,11 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import VueToast from 'vue-toast-notification';
+
+//Firebase instance
+import "@/plugins/firebase";
+import { auth } from "@/plugins/firebase"
 
 //Styles
 import './assets/styles/index.css';
@@ -10,12 +15,21 @@ import './assets/styles/index.css';
 import Gyphy from './plugins/giphy.js'
 
 Vue.config.productionTip = false;
+
 Vue.use(Gyphy)
+Vue.use(VueToast);
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+let app
+auth.onAuthStateChanged((user) => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  }
 
-// mYD6eV7LUml6b5cGJzYSNG1iJE6rBXC8
+  if (user) {
+    store.commit('setUser', user)
+  }
+})
