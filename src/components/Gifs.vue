@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-wrap justify-center">
-    <GifCard v-for="giph in giphs" :key="giph.id" :image="giph.images.original.url" />
+    <GifCard v-for="giph in giphs" :key="giph.id" :image="giph.images.original.url" :gif="giph" />
   </div>
 </template>
 
@@ -13,6 +13,12 @@ export default {
   components: {
     GifCard
   },
+  props: {
+    subject: {
+      type: String,
+      default: "dogs"
+    }
+  },
   data() {
     return {
       giphs: null
@@ -20,8 +26,7 @@ export default {
   },
   computed: {
     currentSearch() {
-      const defaultSearch = "dogs";
-      return this.$store.state.currentSearch || defaultSearch;
+      return this.$store.state.currentSearch || this.subject;
     }
   },
   watch: {
@@ -38,7 +43,6 @@ export default {
         sort: "relevant",
         limit: 10
       });
-      console.log(data);
       this.giphs = data;
     }
   }
