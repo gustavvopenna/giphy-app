@@ -1,12 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
+    <div class="block sm:hidden">
+      <NavbarMobile />
+      <router-view />
     </div>
-    <router-view />
+    <div class="hidden sm:block">
+      <NavbarDesktop />
+      <router-view />
+    </div>
   </div>
 </template>
+
+<script>
+import NavbarMobile from "@/components/NavbarMobile.vue";
+import NavbarDesktop from "@/components/NavbarDesktop.vue";
+import "vue-toast-notification/dist/theme-default.css";
+
+export default {
+  components: {
+    NavbarMobile,
+    NavbarDesktop
+  }
+};
+</script>
 
 <style>
 #app {
