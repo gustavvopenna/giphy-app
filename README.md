@@ -1,7 +1,8 @@
 # Worgiphy
 
 
-💻 Es una web app en la que podrás encontrar 🔥 Gifs de tus temas favoritos, mediante el consumo del API de Giphy. 
+💻 Es una web app en la que podrás encontrar 🔥 Gifs de tus temas favoritos, mediante el consumo del [API](https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md) de Giphy. 
+
 ## Visita el sitio dando [click aquí.](https://worgiphy.firebaseapp.com)
 
 # Funcionalidades!
@@ -69,13 +70,14 @@ Al terminar estos pasos, Firebase agrega dos archivos automaticamente
 ## 5. Agrega las variables de entorno
 En el directorio raíz del proyecto, crea un archivo .env, con lo siguiente para configurar Firebase
 ```
-    VUE_APP_API_KEY=AIzaSyDxNiOHkk-kfy-WFb1f0qpsjfSTj1h8_m4
-    VUE_APP_AUTH_DOMAIN=worgiphy.firebaseapp.com
-    VUE_APP_DATABASE_URL=https://worgiphy.firebaseio.com
-    VUE_APP_PROJECT_ID=worgiphy
-    VUE_APP_STORAGE_BUCKET=worgiphy.appspot.com
-    VUE_APP_MESSAGING_SENDER_ID=744364657898
-    VUE_APP_APP_ID=1:744364657898:web:ff2257d75cb01dc85d1b93
+  VUE_APP_FB_API_KEY=AIzaSyDxNiOHkk-kfy-WFb1f0qpsjfSTj1h8_m4
+  VUE_APP_FB_AUTH_DOMAIN=worgiphy.firebaseapp.com
+  VUE_APP_FB_DATABASE_URL=https://worgiphy.firebaseio.com
+  VUE_APP_FB_PROJECT_ID=worgiphy
+  VUE_APP_FB_STORAGE_BUCKET=worgiphy.appspot.com
+  VUE_APP_FB_MESSAGING_SENDER_ID=744364657898
+  VUE_APP_FB_APP_ID=1:744364657898:web:ff2257d75cb01dc85d1b93
+  VUE_APP_GIPHY_API_KEY=XW1HTpw6EWg9S4z8EYwbMoBy1lUOfc5o
 ```
 
 ## 6. Compila el proyecto para entorno de desarrollo y habilita "Hot reload"
