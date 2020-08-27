@@ -5,6 +5,10 @@
 
 ## Visita el sitio dando [click aquí.](https://worgiphy.firebaseapp.com)
 
+![Dashboard View](src/assets/images/screenshot-desktop.png)
+![Home View](src/assets/images/screenshot-mobile-2.png)
+![Menu View](src/assets/images/screenshot-mobile-1.png)
+
 # Funcionalidades!
 
   - Registro e inicio de sesión con Firebase
