@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-wrap justify-center">
-    <GifCard v-for="giph in giphs" :key="giph.id" :image="giph.images.original.url" :gif="giph" />
+    <GifCard v-for="giph in giphs" :key="giph.id" :image="giph.images.original.webp" :gif="giph" />
   </div>
 </template>
 

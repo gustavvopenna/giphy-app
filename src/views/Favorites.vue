@@ -6,7 +6,7 @@
         <GifCard
           v-for="gif in favoriteGifs"
           :key="gif.id"
-          :image="gif.images.original.url"
+          :image="gif.images.original.webp"
           :gif="gif"
         />
       </div>

@@ -34,7 +34,7 @@ export default {
   methods: {
     async getAvatar() {
       const avatar = await this.$gf.random({ tag: "colors", type: "gifs" });
-      this.avatar = avatar.data.image_original_url;
+      this.avatar = avatar.data.images.original.webp;
     }
   }
 };
